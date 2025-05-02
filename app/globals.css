@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@plugin 'tailwindcss-animate';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --gradient-from: 169 91 167 ;
+  --gradient-to: 204 158 203;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+  }
+}
+
+.page-head-gradient {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 500px;
+  width: 100%;
+  background: linear-gradient(to right, rgb(var(--gradient-from) / .3) 0, rgb(var(--gradient-to) / .3) 100%);
+  mask-image: linear-gradient(#000, #ffffff00 70%);
+  animation: fade-in 1s ease .2s both;
+}
