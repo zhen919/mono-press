@@ -7,8 +7,7 @@ import AvatarImage from "@/public/avatar.png";
 import useScrollDetector from "@/hooks/use-scroll-detector";
 import {cn} from "@/libs/utils";
 import {usePathname} from "next/navigation";
-import {motion} from "framer-motion";
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import {motion} from 'framer-motion';
 
 
 export default function Header() {
@@ -26,9 +25,10 @@ export default function Header() {
                 <NavigateCom items={NavigateData} currentPath={currentPathname} />
                 {
                     !isHomePage && (
-                        <ViewTransition name="avatar">
-                            <Image src={AvatarImage} alt="Avatar" className="size-12 rounded-4xl m-auto" />
-                        </ViewTransition>
+
+                    <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1,  transition: { duration: 0.5 } }} >
+                        <Image src={AvatarImage} alt="Avatar" className="size-12 rounded-4xl m-auto" />
+                    </motion.div>
                     )
                 }
             </div>

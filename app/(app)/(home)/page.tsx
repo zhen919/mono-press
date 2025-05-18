@@ -3,9 +3,12 @@ import {Metadata} from "next";
 import Container from "@/components/Container";
 import Image from "next/image";
 import AvatarImage from "@/public/avatar.png";
-import {Mail} from "lucide-react";
+import {Github, Mail} from "lucide-react";
 import { unstable_ViewTransition as ViewTransition } from 'react';
 import Balancer from "react-wrap-balancer";
+import CustomTooltip from "@/components/CustomTooltip";
+import XIcon from "@/components/svg/XIcon";
+import {PersonData} from "@/data/person-data";
 
 export const metadata: Metadata = {
   title: "首页",
@@ -23,17 +26,37 @@ export default function HomePage() {
                         <h2 className="text-2xl mt-4">
                             <span className="">I&#39;m John!</span>
                         </h2>
-                        <Balancer className="mt-4 text-base/8 text-gray-700 w-full">
+                        <Balancer className="mt-4 text-base/8 text-gray-700 w-full max-w-full">
                             我是一名.Net开发人员，从事着客户端和后端的开发，也对前端的技术很感兴趣，Vue和React，最近在学习Next.js和Tailwind CSS。<br />
 
                             往后想成为一名独立开发者，也会和大家分享一些我在学习和工作中遇到的有趣的事情。<br />
                         </Balancer>
 
-                        {/*<ul className="flex space-x-4 mt-8 lg:mt-28">*/}
-                        {/*    <a href="mailto:zhen951111@gmail.com" target="_blank" className="flex">*/}
-                        {/*        <Mail color="white" className="size-9 bg-red-700 rounded-full px-2 py-1 cursor-pointer hover:scale-102" />*/}
-                        {/*    </a>*/}
-                        {/*</ul>*/}
+                        <ul className="flex space-x-4 mt-8 lg:mt-24">
+                            <li className="flex gap-2 group">
+                                <CustomTooltip content="Email" side="bottom">
+                                    <a href={PersonData.Email} target="_blank" className="flex">
+                                        <Mail color="white" className="size-9 bg-red-700/80 rounded-full px-2 py-1 cursor-pointer hover:scale-102" />
+                                    </a>
+                                </CustomTooltip>
+                            </li>
+                            <li className="flex gap-2 group">
+                                <CustomTooltip content="Github" side="bottom">
+                                    <a href={PersonData.Github} target="_blank" className="flex">
+                                        <Github color="white" className="size-9 bg-gray-900 rounded-full px-2 py-1 cursor-pointer hover:scale-102" />
+                                    </a>
+                                </CustomTooltip>
+                            </li>
+                            <li className="flex gap-2 group">
+                                <CustomTooltip content="X" side="bottom">
+                                    <a href={PersonData.X} target="_blank" className="flex">
+                                        <span className="flex size-9 bg-gray-900 rounded-full px-2 py-1 cursor-pointer hover:scale-102">
+                                             <XIcon className="m-auto" />
+                                        </span>
+                                    </a>
+                                </CustomTooltip>
+                            </li>
+                        </ul>
 
                         {/*<span className="text-sm text-zinc-500">网站还在逐步建设中...</span>*/}
 

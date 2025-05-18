@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-export default function timeFormatter(time: string): string {
+export default function timeFormatter(time: string, formatString = "yyyy-MM-dd"): string {
     if (!time) return '';
 
     const date = new Date(time);
@@ -9,5 +9,5 @@ export default function timeFormatter(time: string): string {
         return '';
     }
 
-    return format(date, 'yyyy-MM-dd');
+    return format(date, formatString);
 }

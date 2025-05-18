@@ -16,7 +16,6 @@ export default async function Page() {
             { posts.map((blog) => (
                 <BlogListCard key={blog._id} data={blog} />
             )) }
-
         </div>
     );
 }

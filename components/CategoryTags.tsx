@@ -12,7 +12,7 @@ export default function CategoryTags({tagNames}: TagProps) {
             {
                 tagNames.map((name, index) => {
                     return (
-                        <span key={index} className="flex gap-x-1 my-auto bg-gray-200 text-gray-700 px-2 py-1 rounded-full">
+                        <span key={index} className="flex gap-1 my-auto bg-gray-200/60 text-gray-700 px-2 py-1 rounded-full">
                             <Tag size={14} className="my-auto" />
                             <span>{name}</span>
                         </span>

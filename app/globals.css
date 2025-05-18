@@ -6,12 +6,14 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 img, picture, video, canvas, svg {
@@ -41,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #2c2222;
   --gradient-from: 169 91 167 ;
   --gradient-to: 204 158 203;
 }
@@ -62,6 +64,25 @@ h1, h2, h3, h4, h5, h6 {
   * {
     scrollbar-width: thin;
   }
+}
+
+#sanity {
+  svg:not(:root) {
+    width: 2em;
+  }
+}
+
+
+.dashed-meta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(to right, #2c2222 40%, rgba(255, 255, 255, 0) 0%);
+  background-size: 9px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
 }
 
 .page-head-gradient {

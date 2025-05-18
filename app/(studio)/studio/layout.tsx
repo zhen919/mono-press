@@ -7,5 +7,5 @@ export default function RootLayout({ children }: PropsWithChildren) {
             {children}
         </body>
         </html>
-    )
+    );
 }

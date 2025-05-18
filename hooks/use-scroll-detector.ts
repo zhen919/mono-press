@@ -3,12 +3,14 @@
 import {useState, useEffect} from "react";
 
 export default function useScrollDetector(detectorValue: number) {
-    const [isScrolledPast100, setIsScrolledPast100] = useState<boolean>(false);
+    const [isScrolledPast, setIsScrolledPast] = useState<boolean>(false);
 
     useEffect(() => {
+        setIsScrolledPast(window.scrollY > detectorValue);
+
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
-            setIsScrolledPast100(scrollPosition > detectorValue);
+            setIsScrolledPast(scrollPosition > detectorValue);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -18,5 +20,5 @@ export default function useScrollDetector(detectorValue: number) {
         };
     }, []);
 
-    return isScrolledPast100;
+    return isScrolledPast;
 }

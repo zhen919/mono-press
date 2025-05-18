@@ -7,6 +7,7 @@ export const Post = z.object({
     publishedAt: z.string(),
     description: z.string(),
     categories: z.array(z.string()).optional(),
+    author: z.string(),
     mainImage: z.object({
         _ref: z.string(),
         asset: z.object({

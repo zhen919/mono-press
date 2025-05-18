@@ -1,9 +1,10 @@
 'use client'
 
-import SyntaxHighlighter from 'react-syntax-highlighter'
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {ClipboardCheckIcon, ClipboardListIcon} from "lucide-react";
 import {useCallback, useState} from "react";
 import CustomTooltip from "@/components/CustomTooltip";
+import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface PortableTextComponentProps {
     value: {
@@ -34,6 +35,7 @@ export default function CodeBlock({value}: PortableTextComponentProps) {
 
     return (
         <div
+            className=""
             data-blockid={_key}
             data-filenname={filename}
         >
@@ -70,9 +72,11 @@ export default function CodeBlock({value}: PortableTextComponentProps) {
                 showLineNumbers={true}
                 showInlineLineNumbers={true}
                 language={language}
+                style={prism}
                 customStyle={{
                     padding: '1em',
                     marginBottom: '2em',
+                    maxHeight: '35em',
                 }}
             >
                 {code}
