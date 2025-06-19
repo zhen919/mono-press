@@ -47,6 +47,10 @@ export const postType = defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'updatedAt',
+      type: 'datetime',
+    }),
+    defineField({
       name: 'description',
       type: 'text',
       rows: 3,

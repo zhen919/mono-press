@@ -1,7 +1,10 @@
-"use client"
+"use client";
+
 import {useState, useRef, useEffect} from "react";
 import {cn} from "@/libs/utils";
 import {HeadingNode} from "@/types";
+import {CircleArrowUp} from "lucide-react";
+import useScrollDetector from "@/hooks/use-scroll-detector";
 
 
 interface BlogContentProps {
@@ -11,6 +14,7 @@ interface BlogContentProps {
 export default function BlogTable({ headings }: BlogContentProps) {
     const [activeId, setActiveId] = useState<string>('');
     const headingsRef = useRef<Element[]>([]);
+    const showToTop = useScrollDetector(500);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -34,6 +38,10 @@ export default function BlogTable({ headings }: BlogContentProps) {
         };
     }, []);
 
+    const handleToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
         headings.length > 0 && (
             <aside className="hidden lg:block w-[224px] text-[14px] leading-[1.4]">
@@ -51,6 +59,16 @@ export default function BlogTable({ headings }: BlogContentProps) {
                             ))
                         }
                     </ul>
+
+                    {
+                        showToTop && (
+                            <button type="button" onClick={handleToTop} className="flex space-x-1 mt-4 text-gray-500 hover:text-gray-800 cursor-pointer">
+                                <CircleArrowUp className="my-auto" size={14} />
+                                <span className="text-sm">回到顶部</span>
+                            </button>
+                        )
+                    }
+
                 </div>
             </aside>
         )

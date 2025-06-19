@@ -5,6 +5,7 @@ export const Post = z.object({
     title: z.string(),
     slug: z.string(),
     publishedAt: z.string(),
+    updatedAt: z.string(),
     description: z.string(),
     categories: z.array(z.string()).optional(),
     author: z.string(),

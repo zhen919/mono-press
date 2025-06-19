@@ -8,9 +8,10 @@ type BlogPostsOptions = {
     forDisplay?: boolean,
 }
 
+
 export const queryBlogListQuery = ({offset = 0, limit = 10} : BlogPostsOptions) =>
-    groq`
-    *[_type == "post"
+    groq`{
+        "posts": *[_type == "post"
     && defined(slug.current)]
     |order(publishedAt desc)
     [${offset}...${limit}]
@@ -21,13 +22,24 @@ export const queryBlogListQuery = ({offset = 0, limit = 10} : BlogPostsOptions) 
     "author": author->name,
     "categories": categories[]->title,
     publishedAt,
+    updatedAt,
     "mainImage": mainImage.asset->url,
     description
+    },
+    "total": count(*[_type == "post" && defined(slug.current)])
     }`;
 
+export const queryBolgTotalQuery = () => groq`
+    count(*[_type == "post" && defined(slug.current)])
+`;
+
 export const getBlogList = (params: BlogPostsOptions) => {
-    return client.fetch<Post[]>(queryBlogListQuery(params));
+    return client.fetch<{ posts: Post[], total: number }>(queryBlogListQuery(params));
 }
+
+export const getBlogTotal = () => {
+  return client.fetch<number>(queryBolgTotalQuery());
+};
 
 
 export const blogQuery = groq`*[_type == "post" && slug.current == $slug][0] {
@@ -38,6 +50,7 @@ export const blogQuery = groq`*[_type == "post" && slug.current == $slug][0] {
     "categories": categories[]->title,
     "mainImage": mainImage.asset->url,
     publishedAt, 
+    updatedAt,
     body
 }`;
 

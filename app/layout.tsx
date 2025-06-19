@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Toaster } from 'react-hot-toast';
 import {PropsWithChildren} from "react";
 
 export default function RootLayout({
@@ -6,7 +7,11 @@ export default function RootLayout({
 }: PropsWithChildren) {
   return (
       <>
-        {children}
+          {children}
+          <Toaster toastOptions={{
+              position: "bottom-right",
+              className: "text-sm",
+          }} />
       </>
   );
 }

@@ -15,10 +15,10 @@ export default function BlogListCard({data}: BlogListCardProps) {
     return (
         <Link href={`/blog/${data.slug}`} className="w-full">
             <div className="flex flex-col items-start w-full py-4 group
-        cursor-pointer transition-all duration-300 ease-out
-        rounded-lg px-4 border border-transparent shadow-xs
-        hover:shadow-lg hover:shadow-purple-200 hover:border hover:border-purple-200
-         hover:bg-gradient-to-l hover:from-pink-50/50 hover:via-purple-50 hover:to-blue-50/50"
+                cursor-pointer transition-all duration-300 ease-out
+                rounded-lg px-4 border border-transparent shadow-xs
+                hover:shadow-lg hover:shadow-purple-200 hover:border hover:border-purple-200
+                hover:bg-gradient-to-l hover:from-pink-50/50 hover:via-purple-50 hover:to-blue-50/50"
             >
                 <div className="flex justify-between w-full text-wrap">
                     <h3 className="text-lg font-bold text-gray-700">
@@ -31,7 +31,7 @@ export default function BlogListCard({data}: BlogListCardProps) {
                 <div className="flex flex-wrap space-y-4 space-x-2 justify-between w-full mt-4 text-xs text-gray-500">
                     {
                         data.categories && data.categories.length > 0 && (
-                            <CategoryTags tagNames={data.categories} />
+                            <CategoryTags tagNames={data.categories}/>
                         )
                     }
 

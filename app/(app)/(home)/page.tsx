@@ -26,8 +26,8 @@ export default function HomePage() {
                         <h2 className="text-2xl mt-4">
                             <span className="">I&#39;m John!</span>
                         </h2>
-                        <Balancer className="mt-4 text-base/8 text-gray-700 w-full max-w-full">
-                            我是一名.Net开发人员，从事着客户端和后端的开发，也对前端的技术很感兴趣，Vue和React，最近在学习Next.js和Tailwind CSS。<br />
+                        <Balancer className="mt-4 text-base/8 text-gray-700 w-full max-w-[900px]">
+                            我是一名.NET开发人员，从事着客户端和后端的开发，也对前端的技术很感兴趣，Vue和React，最近在学习Next.js和Tailwind CSS。<br />
 
                             往后想成为一名独立开发者，也会和大家分享一些我在学习和工作中遇到的有趣的事情。<br />
                         </Balancer>

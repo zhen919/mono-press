@@ -9,17 +9,17 @@ export const postComponents : PortableTextComponents = {
         normal: ({children}) =>
             <p className="mb-4 text-[16px]">{children}</p>,
         h1: ({children, value}) =>
-            <h1 id={value._key} className="text-3xl font-bold text-zinc-900 mb-6">{children}</h1>,
+            <h1 id={value._key} className="text-4xl font-bold text-zinc-900 mb-6 mt-8">{children}</h1>,
         h2: ({children, value}) =>
-            <h2 id={value._key} className="text-2xl font-bold text-zinc-900 mb-6">{children}</h2>,
+            <h2 id={value._key} className="text-3xl font-bold text-zinc-900 mb-6 mt-8">{children}</h2>,
         h3: ({children, value}) =>
-            <h3 id={value._key} className="text-xl font-bold text-zinc-900 mb-6">{children}</h3>,
-        blockquote: ({children}) => <blockquote className="border-l-gray-500">{children}</blockquote>,
+            <h3 id={value._key} className="text-2xl font-bold text-zinc-900 mb-6 mt-8">{children}</h3>,
+        blockquote: ({children}) => <blockquote className="border-l-gray-500 mb-4">{children}</blockquote>,
     },
     types: {
         image: ({ value }) => {
             if (!value?.asset?._ref) {
-                return null
+                return null;
             }
 
             return (
