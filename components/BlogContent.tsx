@@ -14,10 +14,7 @@ interface BlogContentProps {
 }
 
 export default async function BlogContent({slug}: BlogContentProps) {
-
     const post = await getBlog(slug);
-
-    console.log(post);
 
     const headings: HeadingNode[] = [];
 
@@ -51,7 +48,7 @@ export default async function BlogContent({slug}: BlogContentProps) {
                             <BlogTable headings={headings} />
 
                             <div className="mx-auto space-y-4 text-lg text-gray-700 prose lg:prose-xl w-full md:w-[calc(100%-224px)]">
-                                <article className="tracking-normal text-base/7 space-y-2 w-full md:px-[5%]">
+                                <article className="tracking-normal text-base/7 space-y-2 w-full md:px-[5%] selection:bg-blue-900 selection:text-white">
                                     {Array.isArray(post?.body) &&
                                         <PortableText value={post.body} components={postComponents} />
                                     }

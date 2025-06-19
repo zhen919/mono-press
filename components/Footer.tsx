@@ -2,6 +2,8 @@ import Container from "@/components/Container";
 import Image from "next/image";
 import GithubImage from '@/public/github.png';
 import timeFormatter from "@/utils/time-helper";
+import Link from "next/link";
+import {PersonData} from "@/data/person-data";
 
 export default function Footer() {
 
@@ -14,7 +16,10 @@ export default function Footer() {
                     <div className="flex flex-col gap-2 mx-auto">
                         <div className="flex gap-2  text-sm text-gray-500">
                             <span>&copy; {timeFormatter(new Date(), 'yyyy')} 网站已开源</span>
-                            <Image className="w-4 h-4 my-auto" src={GithubImage} alt="github icon" />
+
+                            <Link href={PersonData.Github} className="my-auto cursor-pointer">
+                                <Image className="w-4 h-4 my-auto" src={GithubImage} alt="github icon" />
+                            </Link>
                         </div>
                     </div>
                 </div>
