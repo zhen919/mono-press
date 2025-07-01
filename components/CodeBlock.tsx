@@ -4,7 +4,7 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {ClipboardCheckIcon, ClipboardListIcon} from "lucide-react";
 import {useCallback, useState} from "react";
 import CustomTooltip from "@/components/CustomTooltip";
-import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {ocean} from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 interface PortableTextComponentProps {
     value: {
@@ -72,11 +72,13 @@ export default function CodeBlock({value}: PortableTextComponentProps) {
                 showLineNumbers={true}
                 showInlineLineNumbers={true}
                 language={language}
-                style={prism}
+                style={ocean}
                 customStyle={{
                     padding: '1em',
                     marginBottom: '2em',
                     maxHeight: '35em',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
                 }}
             >
                 {code}

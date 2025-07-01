@@ -44,8 +44,10 @@ h1, h2, h3, h4, h5, h6 {
 :root {
   --background: #ffffff;
   --foreground: #2c2222;
-  --gradient-from: 169 91 167 ;
-  --gradient-to: 204 158 203;
+  /*--gradient-from: 169 91 167;*/
+  /*--gradient-to: 204 158 203;*/
+  --gradient-from: 91 91 169;
+  --gradient-to: 158 158 204;
 }
 
 @theme inline {
