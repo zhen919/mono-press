@@ -21,9 +21,13 @@ export default function Header() {
 
                 <NavigateCom items={NavigateData} currentPath={currentPathname} />
 
-                <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1,  transition: { duration: 0.5 } }} >
-                    <Image src={AvatarImage} alt="Avatar" className="size-12 rounded-4xl m-auto" />
-                </motion.div>
+                {
+                    currentPathname !== "/" && (
+                        <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1,  transition: { duration: 0.5 } }} >
+                            <Image src={AvatarImage} alt="Avatar" className="size-12 rounded-4xl m-auto" />
+                        </motion.div>
+                    )
+                }
 
             </div>
         </header>

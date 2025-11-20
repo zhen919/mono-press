@@ -9,18 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-
-    const data: {posts: Post[], total: number} = await getBlogList({offset: 0, limit: 10});
     
     return (
         <div className="flex flex-col space-y-4 items-start mx-auto 2xl:max-w-4xl max-w-3xl pb-8 ">
-            { data.posts.map((blog) => (
-                <BlogListCard key={blog._id} data={blog} />
-            )) }
-
-            {
-                data.total > 10 && <ScrollPost />
-            }
+            <ScrollPost />
         </div>
     );
 }

@@ -10,7 +10,7 @@ import Loading from "@/app/(app)/loading";
 export default function ScrollPost() {
     const [items, setItems] = useState<Post[]>([]);
     const [hasMore, setHasMore] = useState<boolean>(true);
-    const [page, setPage] = useState<number>(2);
+    const [page, setPage] = useState<number>(1);
 
     const fetchMoreData = async () => {
         try {
@@ -21,8 +21,13 @@ export default function ScrollPost() {
                 return;
             }
 
-            setItems(prevItems => [...prevItems, ...posts]);
-            setPage(prevPage => prevPage + 1);
+            if (page === 1) {
+                setItems(posts);
+            } else {
+                setItems(prevItems => [...prevItems, ...posts]);
+                setPage(prevPage => prevPage + 1);
+            }
+
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -39,6 +44,7 @@ export default function ScrollPost() {
                next={fetchMoreData}
                hasMore={hasMore}
                loader={<Loading />}
+               className="flex flex-col space-y-4 items-start"
            >
                {items.map((blog) => (
                    <BlogListCard key={blog._id} data={blog} />
@@ -54,7 +60,7 @@ interface query {
 }
 
 export async function getServerSideProps({ page, limit = 10 }: query) {
-    const currentPage = isNaN(page) ? 2 : page;
+    const currentPage = isNaN(page) ? 1 : page;
     const offset = (currentPage - 1) * limit;
 
     const data = await getBlogList({offset, limit});
